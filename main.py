@@ -1,5 +1,6 @@
 import pyautogui
 import time
+import pandas
 
 # Set the delay between each action
 pyautogui.PAUSE = 0.5
@@ -21,3 +22,7 @@ pyautogui.write("123")
 pyautogui.press("tab")
 pyautogui.press("enter")
 
+time.sleep(1)
+
+# Import the database
+tabela = pandas.read_csv("products.csv")
