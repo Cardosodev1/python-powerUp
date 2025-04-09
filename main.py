@@ -1,6 +1,6 @@
 import pyautogui
 import time
-import pandas
+import pandas as pd
 
 # Set the delay between each action
 pyautogui.PAUSE = 0.5
@@ -25,36 +25,36 @@ pyautogui.press("enter")
 time.sleep(1)
 
 # Import the database
-tabela = pandas.read_csv("products.csv")
+dataframe = pd.read_csv("products.csv")
 
 # Register products
-for linha in tabela.index:
+for line in dataframe.index:
     pyautogui.click(x = 956, y = 242)
-    code = str(tabela.loc[linha, "codigo"])
+    code = str(dataframe.loc[line, "codigo"])
     pyautogui.write(code)
 
     pyautogui.press("tab")
-    brand = str(tabela.loc[linha, "marca"])
+    brand = str(dataframe.loc[line, "marca"])
     pyautogui.write(brand)
 
     pyautogui.press("tab")
-    type = str(tabela.loc[linha, "tipo"])
+    type = str(dataframe.loc[line, "tipo"])
     pyautogui.write(type)
 
     pyautogui.press("tab")
-    category = str(tabela.loc[linha, "categoria"])
+    category = str(dataframe.loc[line, "categoria"])
     pyautogui.write(category)
     
     pyautogui.press("tab")
-    price = str(tabela.loc[linha, "preco_unitario"])
+    price = str(dataframe.loc[line, "preco_unitario"])
     pyautogui.write(price)
     
     pyautogui.press("tab")
-    cost = str(tabela.loc[linha, "custo"])
+    cost = str(dataframe.loc[line, "custo"])
     pyautogui.write(cost)
 
     pyautogui.press("tab")
-    obs = str(tabela.loc[linha, "obs"])
+    obs = str(dataframe.loc[line, "obs"])
     if obs != "nan":
         pyautogui.write(obs)
 
